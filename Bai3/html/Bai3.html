@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        * {
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+        .wrapper {
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        .hinhAnh {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+    </style>
+    <script>
+        const img = [
+            "../img/b1.jpg",
+            "../img/b2.jpg",
+            "../img/b3.jpg",
+            "../img/b4.jpg",
+            "../img/b5.jpg",
+            "../img/b6.jpg",
+            "../img/b7.jpg",
+            "../img/b8.jpg",
+            "../img/b9.jpg",
+            "../img/b10.jpg",
+        ];
+
+        // //Hàm random ảnh
+        // function randomImg() {
+        //     let random = Math.floor(Math.random() * img.length);
+        //     let anh = document.getElementById("anh");
+        //     anh.setAttribute("src", img[random]);
+        // }
+        let time;
+        let i = 0;
+        function Play() {
+            let anh = document.getElementById("anh");
+            anh.setAttribute("src", img[i]);
+            time = setTimeout(Play, 100);
+            if (i > img.length) {
+                i = 0;
+            }
+            i = i + 1;
+        }
+
+        // function Play() {
+        //     let anh = document.getElementById("anh");
+        //     anh.setAttribute("src", img[i]); // Hiển thị hình ảnh tại chỉ mục i trong mảng img
+        //     i = (i + 1) % img.length; // Cập nhật giá trị của i cho hình ảnh tiếp theo trong mảng
+        //     time = setTimeout(Play, 100); // Gọi lại hàm Play() sau 1 giây
+        // }
+
+        function Stop() {
+            clearTimeout(time);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="">
+            <img src="../img/b1.jpg" alt="" id="anh" class="hinhAnh"> <br>
+            <button type="button" onclick="Play()">Play</button>
+            <button type="button" onclick="Stop()">Stop</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2c</title>
+    <style>
+        *{
+            margin: 0px auto;
+            padding: 0px;
+        }
+        .wrapper{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        #hienThi{
+            color: red;
+        }
+    </style>
+    <script>
+        function inSanPham(){
+            let check = document.getElementsByName("cafe");
+            let text = "";
+            for(let i = 0; i < check.length; i++){
+                if(check[i].checked){
+                    text += check[i].value + "," + "\n";
+                }
+            }
+            document.getElementById("hienThi").innerHTML = text;
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="check">
+            <form action="">
+                <label for="cafe">Chon loai cafe:</label> <br>
+                <input type="checkbox" name="cafe" id="cafe" value="Trung Nguyen"> Trung Nguyen <br>
+                <input type="checkbox" name="cafe" id="cafe" value="Me Khong"> Me Khong <br>
+                <input type="checkbox" name="cafe" id="cafe" value="New life"> New life <br>
+                <input type="checkbox" name="cafe" id="cafe" value="Ocean Blue"> Ocean Blue <br>
+                <input type="checkbox" name="cafe" id="cafe" value="Blue Space"> Blue Space <br>
+                <input type="checkbox" name="cafe" id="cafe" value="Windows"> Windows <br>
+                <button type="button" onclick="inSanPham()" >Chọn</button>
+            </form>
+            <label for="lblHienThi">Bạn chọn cafe: </label>
+            <label for="" id="hienThi"></label>
+        </div>
+    </div>
+</body>
+</html>

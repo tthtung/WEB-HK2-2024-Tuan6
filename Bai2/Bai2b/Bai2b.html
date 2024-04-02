@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai2b</title>
+    <link rel="stylesheet" href="../bootstrap-4.6.2-dist/css/bootstrap.min.css">
+    <script src="../bootstrap-4.6.2-dist/js/jquery-3.7.1.min.js"></script>
+    <script src="../bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+    <style>
+        [class*=col-] {
+            padding: 0px;
+            margin: 0px auto;
+        }
+
+        .err {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+    <script>
+
+        function ktr() {
+            let sothu1 = document.getElementById("sothu1").value;
+            let sothu2 = document.getElementById("sothu2").value;
+            if (sothu1 === "") {
+                document.getElementById("error1").innerHTML = "Không được để trống";
+            }
+            if (sothu2 === "") {
+                document.getElementById("error2").innerHTML = "Không được để trống";
+            }
+
+            if (isNaN(sothu1)) {
+                document.getElementById("error1").innerHTML = "Phải nhập số";
+            }
+
+            if (isNaN(sothu2)) {
+                document.getElementById("error2").innerHTML = "Phải nhập số";
+            }
+
+            if (!(sothu1 === "") && !(isNaN(sothu1))) {
+                document.getElementById("error1").innerHTML = "(*)";
+            }
+
+            if (!(sothu2 === "") && !(isNaN(sothu2))) {
+                document.getElementById("error2").innerHTML = "(*)";
+            }
+
+        }
+
+        function cong() {
+
+            let sothu1 = document.getElementById("sothu1").value;
+            let sothu2 = document.getElementById("sothu2").value;
+            let ketqua = parseInt(sothu1) + parseInt(sothu2);
+            document.getElementById("ketqua").value = ketqua;
+        }
+
+        function tru() {
+
+
+            let sothu1 = document.getElementById("sothu1").value;
+            let sothu2 = document.getElementById("sothu2").value;
+            let ketqua = parseInt(sothu1) - parseInt(sothu2);
+            document.getElementById("ketqua").value = ketqua;
+        }
+
+        function chia() {
+
+            let sothu1 = document.getElementById("sothu1").value;
+            let sothu2 = document.getElementById("sothu2").value;
+            if (parseInt(sothu2) === 0) {
+                alert("Error: Division by zero");
+                return;
+            }
+            let ketqua = parseInt(sothu1) / parseInt(sothu2);
+            document.getElementById("ketqua").value = ketqua;
+        }
+
+        function chiadu() {
+
+            let sothu1 = document.getElementById("sothu1").value;
+            let sothu2 = document.getElementById("sothu2").value;
+            if (parseInt(sothu2) === 0) {
+                alert("Error: Division by zero");
+                return;
+            }
+            let ketqua = parseInt(sothu1) % parseInt(sothu2);
+            document.getElementById("ketqua").value = ketqua;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <h1>PHÉP TÍNH CƠ BẢN</h1>
+                <label for="sothu1">Nhập số thứ 1</label>
+                <input type="text" name="sothu1" id="sothu1" onblur="ktr()">
+                <span class="err" id="error1">(*)</span> <br> <br>
+                <label for="sothu2">Nhập số thứ 2</label>
+                <input type="text" name="sothu2" id="sothu2" onblur="ktr()">
+                <span class="err" id="error2">(*)</span> <br> <br>
+                <button type="button" id="cong" onclick="cong()">Cong</button>
+                <button type="button" id="tru" onclick="tru()">Tru</button>
+                <button type="button" id="chia" onclick="chia()">Chia</button>
+                <button type="button" id="chiadu" onclick="chiadu()">Chia du</button> <br> <br>
+                <label for="ketqua">Kết quả</label>
+                <input type="text" name="ketqua" id="ketqua" disabled>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
